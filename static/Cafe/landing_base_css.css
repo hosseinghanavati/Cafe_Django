@@ -1,0 +1,34 @@
+.footer{
+    background-color: #808080;
+    height: 100px;
+    text-align: center;
+}
+.h_button{
+    height: 50px;
+    background-color: darkorange;
+    color: white;
+    text-align: center;
+    border: none;
+    width: 20%;
+    border-right: 1px solid white;
+    /*padding-top: 1rem;*/
+}
+.h_button:hover{
+    background-color: black;
+}
+.h_button:active{
+    background-color: #414141;
+}
+
+.btn_a{
+    color: white;
+
+}
+.btn_a:hover{
+    background-color: black;
+    color: white;
+}
+.btn_a:active{
+    background-color: #414141;
+
+}

@@ -1,0 +1,85 @@
+{% extends 'Cafe/landing_base_html.html' %}
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+{% block extra_head %}
+    <meta charset="UTF-8">
+    <title>{% block title %}{% trans 'Home' %}{% endblock %}</title>
+    <link type="text/css" href="{% static 'Cafe/bootstrap.min.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'Cafe/landing_base_css.css' %}" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href={% static 'Cafe/home.css' %}>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link href="https://static.neshan.org/sdk/openlayers/5.3.0/ol.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+    <script type="text/javascript" src="https://static.neshan.org/sdk/openlayers/5.3.0/ol.js"></script>
+    <style>
+        body, h1, h2, h3, h4, h5 {
+            font-family: "Raleway", sans-serif
+
+        }
+    </style>
+{% endblock %}
+<body style="background-color:lightyellow;z-index: 99">
+<div class="container-fluid">
+
+    <!--    Header-->
+{#    <div style="position: sticky;top: 0;z-index: 99" class="row">#}
+{##}
+{#        <button class="h_button" onclick="content_include('home')">HOME</button>#}
+{#        <button class="h_button" onclick={% url 'Cafe:about' %}>ABOUT</button>#}
+{#        <button class="h_button" onclick="content_include('Contact')"> CONTACT US</button>#}
+{#        <button class="h_button" onclick="content_include('menu')">MENU</button>#}
+{#        <button class="h_button" onclick="content_include('order_list')">ORDER LIST</button>#}
+{#    </div>#}
+
+    <!--    Body-->
+    {% block main %}
+        <div class="container" style="color: white">
+            <header>
+                <a href="#" class="logo" style="z-index: -1"><br>coffee sharif</a>
+            </header>
+            <div class="banner">
+                <video SRC="{% static 'Cafe/CAfevideo.mp4' %}" muted autoplay loop type="mp4"></video>
+                <div class="textBox">
+                    <h2>In the heart of Tehran</h2><br>
+                    <p> A gallery, cafe and lounge in the heart of Toronto’s creative downtown<br>
+                        <br>Experience the best with us
+                    </p><br>
+                    <a href="#">RESERVE ONLINE </a>
+                </div>
+                <div class="videoBx">
+                    <video SRC="{% static 'Cafe/CAfevideo.mp4' %}" muted autoplay loop type="mp4"></video>
+                </div>
+                <ul class="sci">
+                    <li><a href="#"><img src="{% static 'Cafe/facebook.png' %}"></a></li>
+                    <li><a href="#"><img src="{% static 'Cafe/twitter.png' %}"></a></li>
+                    <li><a href="#"><img src="{% static 'Cafe/instagram.png' %}"></a></li>
+
+                </ul>
+            </div>
+        </div>
+    {% endblock %}
+
+    <!--    Footer-->
+    <div class="row footer">
+
+        <p style="margin-top: 2rem; color: white">Produced By <a href="https://github.com/hosseinghanavati">S.A.H.A</a>
+        </p>
+    </div>
+</div>
+{#<script>#}
+{#    function content_include(name) {#}
+{#        $.get("{% url 'page_content' %}", {'name': name}, function (response) {#}
+{#            $('#content').html('')#}
+{#            $('#content').html(response)#}
+{#        })#}
+{#    }#}
+{#</script>#}
+</body>
+</html>

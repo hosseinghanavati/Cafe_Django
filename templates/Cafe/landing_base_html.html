@@ -1,0 +1,63 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans 'Cafe' %}-{% block title %}{% endblock %}</title>
+    <link type="text/css" href="{% static 'Cafe/bootstrap.min.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'Cafe/landing_base_css.css' %}" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href={% static 'Cafe/home.css' %}>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link href="https://static.neshan.org/sdk/openlayers/5.3.0/ol.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+    <script type="text/javascript" src="https://static.neshan.org/sdk/openlayers/5.3.0/ol.js"></script>
+    <style>
+        body, h1, h2, h3, h4, h5 {
+            font-family: "Raleway", sans-serif
+
+        }
+    </style>
+    {% block extra_head %}{% endblock %}
+</head>
+<body style="background-color:lightyellow;z-index: 99">
+<div class="container-fluid">
+
+    <!--    Header-->
+    <div style="position: sticky;top: 0;z-index: 99" class="row">
+
+        <button class="h_button" onclick="{% url 'Cafe:index' %}">HOME</button>
+        <button class="h_button" onclick="{% url 'Cafe:about' %}">ABOUT</button>
+        <button class="h_button" onclick="{% url 'Cafe:contactus' %}"> CONTACT US</button>
+        <button class="h_button" onclick="{% url 'Cafe:menu' %}">MENU</button>
+        <button class="h_button" onclick="{% url 'Cafe:order-list' %}">ORDER LIST</button>
+    </div>
+
+    <!--    Body-->
+    <div class="row" id="content">
+       {% block main %}
+
+       {% endblock %}
+    </div>
+
+    <!--    Footer-->
+    <div class="row footer">
+
+        <p style="margin-top: 2rem; color: white">Produced By <a href="https://github.com/hosseinghanavati">S.A.H.A</a>
+        </p>
+    </div>
+</div>
+{#<script>#}
+{#    function content_include(name) {#}
+{#        $.get("{% url 'page_content' %}", {'name': name}, function (response) {#}
+{#            $('#content').html('')#}
+{#            $('#content').html(response)#}
+{#        })#}
+{#    }#}
+{#</script>#}
+</body>
+</html>

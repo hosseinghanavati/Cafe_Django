@@ -1,0 +1,108 @@
+{% extends 'Cafe/landing_base_html.html' %}
+{% load i18n %}
+{% load static %}
+<meta charset="UTF-8">
+{% block extra_head %}
+    <title>{% block title %}{% trans 'Contact Us' %}{% endblock %}</title>
+
+    <link type="text/css" href="{% static 'Cafe/contact_us.css' %}" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!--neshan-->
+    <link href="https://static.neshan.org/sdk/openlayers/5.3.0/ol.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+    <script type="text/javascript" src="https://static.neshan.org/sdk/openlayers/5.3.0/ol.js"></script>
+{% endblock %}
+
+{% block main %}
+<div style="background-color: lightyellow; align-content: center">
+    <div class="container-fluid" style="color:white; background-color: lightyellow!important;">
+        <div class="row">
+            <div class="col-sm-8" style="position: center ; margin-left: auto ; margin-right: auto">
+                <p style="margin-left: 250px; font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace ; font-size: 20px; color: black">
+                    Find us at the below location </p></br>
+
+                <div id="map"
+                     style="position: relative; margin-left: 200px; width: 600px; height: 450px; background: #eee; border: 2px solid #aaa;"></div>
+
+
+                <p class="col-8"
+                   style="font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace ; font-size: 20px ; margin-left: 200px; color: black">
+                    <b>Expect More Than Coffee</b></br>
+                    We’re not just passionate purveyors of coffee, but everything else that goes with a full and
+                    rewarding coffeehouse experience. We also offer a selection of premium teas, fine pastries
+                    and other delectable treats to please the taste buds. And the music you hear in store is
+                    chosen for its artistry and appeal.
+                    It’s not unusual to see people coming to Starbucks to chat, meet up or even work. We’re a
+                    neighborhood gathering place, a part of the daily routine – and we couldn’t be happier about
+                    it. Get to know us and you’ll see: we are so much more than what we brew.
+                    We make sure everything we do is through the lens of humanity – from our commitment to the
+                    highest quality coffee in the world, to the way we engage with our customers and communities
+                    to do business responsibly.
+                </p></br>
+            </div>
+        </div>
+    </div>
+    <div class="container col-6">
+        <div>
+            <label for="fname"><b>First Name</b></label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name..">
+            <label for="lname"><b>Last Name</b></label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+            <label for="email"><b>E-mail</b></label>
+            <input type="text" id="email" name="email" placeholder="Your E-mail..">
+            <label for="subject"><b>Subject</b></label>
+            <textarea id="subject" name="subject" placeholder="Your message.." style="height:200px"></textarea>
+            <button class="btn_detail" onclick="send()">SEND</button>
+        </div>
+    </div>
+</div>
+
+
+{#<script type="text/javascript">#}
+{#    function send() {#}
+{#        let f_name = $('#fname').val()#}
+{#        let l_name = $('#lname').val()#}
+{#        let email = $('#email').val()#}
+{#        let message = $('#subject').val()#}
+{#        if (!f_name) {#}
+{#            alert('first name is empty')#}
+{#            return 0;#}
+{#        }#}
+{#        if (!l_name) {#}
+{#            alert('last name is empty')#}
+{#            return 0;#}
+{#        }#}
+{#        if (!message) {#}
+{#            alert('message is empty')#}
+{#            return 0;#}
+{#        }#}
+{#        $.post("{% url 'page_content' %}", {#}
+{#            'name': 'Contact',#}
+{#            'first_name': f_name,#}
+{#            'last_name': l_name,#}
+{#            'email': email,#}
+{#            'message': message#}
+{#        }, function (response) {#}
+{#            $('#content').html('')#}
+{#            $('#content').html(response)#}
+{#        })#}
+{#    }#}
+{##}
+{#    let myMap = new ol.Map({#}
+{#        target: 'map',#}
+{#        key: 'web.MItkfFMYZVw0CWPE5hERgJkjwQ4aDQS7qJFrntLb',#}
+{#        maptype: 'dreamy',#}
+{#        poi: true,#}
+{#        traffic: false,#}
+{#        view: new ol.View({#}
+{#            center: ol.proj.fromLonLat([51.338076, 35.699756]),#}
+{#            zoom: 14#}
+{#        })#}
+{#    });#}
+{#</script>#}
+{% endblock %}
+

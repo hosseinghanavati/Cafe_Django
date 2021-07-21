@@ -1,0 +1,37 @@
+{% extends 'Cafe/landing_base_html.html' %}
+{% load i18n%}
+{% load static %}
+<!DOCTYPE html>
+{% block extra_head %}
+    <title>{% block title %}{% trans 'About' %}{% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href={% static 'Cafe/about.css' %}>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+{% endblock %}
+{% block main %}
+<div class="header">
+    <div class="man">
+        <h1>about us . .</h1>
+        <p>
+            A small cup in tehran <br>
+            A cup of black coffee<br>
+            <br>TypeHot or ice-cold (usually hot) Region of origin
+            Horn of Africa[1] and South Arabia[2] Introduced 15th century<br>
+            Color Black, dark brown, light brown, beige<br>
+            Coffee is a brewed drink prepared from roasted coffee beans,<br> the seeds of berries from certain Coffee
+            species.<br> All fruit must be further processed from a raw material—the fruit and seed—into a stable,<br>
+            raw product; un-roasted, green coffee. To process the berries,<br> the seed is separated from the fruit to
+            produce green coffee.<br>
+            <br><br>
+        </p>
+
+        <ul class="sci">
+            <li><a href="#"><img src="{% static 'Cafe/facebook.png' %}"></a></li>
+            <li><a href="#"><img src="{% static 'Cafe/twitter.png' %}"></a></li>
+            <li><a href="#"><img src="{% static 'Cafe/instagram.png' %}"></a></li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

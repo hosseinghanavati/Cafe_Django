@@ -1,0 +1,81 @@
+{% extends 'Cafe/landing_base_html.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block extra_head %}
+    <title>{% block title %}{% trans 'Order List' %}{% endblock %}</title>
+    <link type="text/css" href="{% static 'Cafe/landing_order_list.css' %}" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function send(confirm , table_number){
+            $.ajax({
+                url: '/page_content?name=order_list',
+                type: 'GET',
+                data: {
+                    'confirm': confirm,
+
+                    'table-number': table_number
+                },
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+        }
+        function cancel(index){
+            $.ajax({
+                url: '/page_content?name=order_list',
+                type: 'GET',
+                data: {
+                    'index': index
+                },
+                success: function (data){
+                    console.log(data);
+                }
+            });
+        }
+    </script>
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="row" style="min-height: 1000px; background-color: #5c636a; border: solid black; border-radius: 10px;">
+        {% for item in items %}
+            {% if item != None %}
+                <div class="row order_box" id="{{ item.0.id }}">
+                    <div class="col-4">{{ item.0.name }}</div>
+                    <div class="col-2">Quantity: {{ item.1 }}</div>
+                    <div class="col-5">waiting for cooking</div>
+                    <div class="col-1"><button class="laghv_btn" onclick="($('#{{ item.0.id }}').remove()) && cancel({{ item.0.id }})"><h4>X</h4></button></div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="row order_box" style="background-color: white!important;">
+{#        <div class="col-3">#}
+{#            <select id="table-position">#}
+{#                {% for table in tables %}#}
+{#                    <option>{{ table.position }}</option>#}
+{#                {% endfor %}#}
+{#            </select>#}
+{#        </div>#}
+        <form action="{% url 'Cafe:order-list' %}" method="post">
+            {% csrf_token %}
+            <div class="col-6">
+                <select id="table-number" name="table">
+                    {% for table in tables %}
+                        {% if table.status == 0 %}
+                            <option value={{ table.number }}>{{ table.number }} : {{ table.position }} </option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-6">
+                <input type="submit" class="btn btn-dark" style="width: 100px" value="Send">
+            </div>
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}

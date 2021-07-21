@@ -1,0 +1,57 @@
+body{
+    font-family: "Sofia", sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+
+}
+body h1{
+    padding: 10px 10px ;
+    font-size: 2em;
+}
+body p{
+    font-size: 1em;
+}
+.header{
+
+    height:110vh ;
+    width: 100%;
+    background:url("about back.jpg")no-repeat ;
+    background-size: cover;
+    background-position: center;
+}
+.man{
+    width:50% ;
+    background:rgba(0,0,0,.7) ;
+    color: #ffffff;
+    text-align: center;
+    padding: 25px 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%) ;
+}
+.header .sci
+{
+    position: absolute;
+    bottom: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header .sci li
+{
+    list-style: none;
+
+}
+.header .sci li a
+{
+    display: inline-block;
+    margin-right: 50px;
+}
+.header .sci a img
+{
+    transform:scale(.55) ;
+    filter:invert(1);
+}
